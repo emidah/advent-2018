@@ -1,23 +1,25 @@
 def main():
-    numfile = open('input.txt','r')
-    
-    twolet = 0
-    threelet = 0
-    
-    for line in numfile:
-        for letter in line:
-            if line.count(letter) == 2:
-                print("double " + letter + " in " + line)
-                twolet += 1
+    text = open('input.txt','r').read().split()
+
+    first = ""
+    second = ""
+    breaker = False
+
+    for i in range(len(text)):
+        for j in range(i+1, len(text)):
+            counter = 0
+            for k in range(len(text[0])):
+                if(text[i][k] != text[j][k]):
+                    counter += 1
+            if(counter == 1):
+                first = text[i] 
+                second = text[j] 
+                breaker = True
                 break
-            
-        for letter in line:
-            if line.count(letter) == 3:
-                print("triple " + letter + " in " + line)
-                threelet += 1 
-                break
-    print("tally: " + str(twolet) + " doubles and " + str(threelet) + " triples")
-    print("result: " + str(twolet*threelet))
+        if(breaker):
+            break
+
+    print(first + " " + second)
 
 if __name__ == "__main__":
     main()
