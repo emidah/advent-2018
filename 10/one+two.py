@@ -13,13 +13,11 @@ for line in text:
     yspd = int( line[36:38].strip() )
     coords.append( [x,y,xspd,yspd] )
 
-
-breaker = False
 counter = 0
 lastVar = 9999999999999
 
 #Fast forward until dots reach the minima of variance
-while not breaker:
+while True:
     for coord in coords:
         coord[0] += coord[2]
         coord[1] += coord[3]
