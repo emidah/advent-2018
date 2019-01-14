@@ -3,7 +3,7 @@ start = time.time()
 
 st = open("input.txt", 'r').read()
 players = int( st[:st.find(' ')] )
-lastMarble = 4*int( st[34:( st[34:].find(' ') + 34)] )
+lastMarble = int( st[34:( st[34:].find(' ') + 34)] )
 
 print('players: ' + str(players) + ', last marble worth ' + str(lastMarble))
 
