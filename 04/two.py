@@ -8,6 +8,7 @@ minute = 0
 
 minlist = [ [] for i in range(60)]
 
+# Log all activity per minute in minlist
 for line in log:
     if '#' in line: 
         fellAsleepAt = 0
@@ -25,11 +26,15 @@ for line in log:
         guards[guardString] += timeAsleep
         #print(guardString + " woke up after " + str(timeAsleep) + " for a total of " + str(guards[guardString]))
 
+
+# Find count of best quard from best minute
 mincounts = []
 minguards = []
+
 for minute in minlist:
     mostSleeping = ""
     count = 0
+
     for value in set(minute):
         newcount = minute.count(value)
         if newcount > count:
